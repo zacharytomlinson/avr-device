@@ -1,0 +1,18 @@
+PORTC:
+  _add:
+    PC0:
+      description: "Pin A0"
+      addressOffset: "0x0440"
+      access: read-write
+    PC1:
+      description: "Pin A1"
+      addressOffset: "0x0440"
+      access: read-write
+    PC2:
+      description: "Pin A2"
+      addressOffset: "0x0440"
+      access: read-write
+    PC3:
+      description: "Pin A3"
+      addressOffset: "0x0440"
+      access: read-write
