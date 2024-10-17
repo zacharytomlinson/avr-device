@@ -85,7 +85,7 @@ impl atmega32u2::Peripherals {
             if unsafe { DEVICE_PERIPHERALS } {
                 None
             } else {
-                Some(unsafe { atmega16u2::Peripherals::steal() })
+                Some(unsafe { atmega32u2::Peripherals::steal() })
             }
         })
     }
