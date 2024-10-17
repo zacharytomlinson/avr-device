@@ -236,6 +236,8 @@ compile_error!(
     * atmega32a
     * atmega32u2
     * atmega32u4
+    * atmega3208
+    * atmega3209
     * atmega4808
     * atmega4809
     * atmega48p
