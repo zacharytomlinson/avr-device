@@ -38,7 +38,7 @@ pub mod atmega168;
 /// [ATmega16u2](https://www.microchip.com/wwwproducts/en/ATmega16u2)
 pub mod atmega16u2;
 
-#[cfg(feature = "atmega64")]
+#[cfg(feature = "atmega16u2")]
 impl atmega16u2::Peripherals {
     /// Returns all the peripherals *once*
     #[inline]
@@ -72,6 +72,24 @@ pub mod atmega328pb;
 /// [ATmega32A](https://www.microchip.com/wwwproducts/en/ATmega32A)
 #[cfg(feature = "atmega32a")]
 pub mod atmega32a;
+
+/// [ATmega32u2](https://www.microchip.com/wwwproducts/en/ATmega32u2)
+pub mod atmega32u2;
+
+#[cfg(feature = "atmega32u2")]
+impl atmega32u2::Peripherals {
+    /// Returns all the peripherals *once*
+    #[inline]
+    pub fn take() -> Option<Self> {
+        crate::interrupt::free(|_| {
+            if unsafe { DEVICE_PERIPHERALS } {
+                None
+            } else {
+                Some(unsafe { atmega16u2::Peripherals::steal() })
+            }
+        })
+    }
+}
 
 /// [ATmega32U4](https://www.microchip.com/wwwproducts/en/ATmega32U4)
 #[cfg(feature = "atmega32u4")]
